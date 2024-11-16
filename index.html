@@ -102,15 +102,16 @@
         .list-inline-item .skill-img {
             transition: 0.3s;
             /* Smooth transition for hover effect */
+            filter: brightness(0) saturate(100%) invert(29%) sepia(94%) saturate(564%) hue-rotate(196deg) brightness(98%) contrast(92%);
+
         }
 
         .list-inline-item .skill-img:hover {
-            /* filter: hue-rotate(90deg);  */
-            filter: brightness(0) saturate(100%) invert(29%) sepia(94%) saturate(564%) hue-rotate(196deg) brightness(98%) contrast(92%);
+            filter: none;
         }
 
 
-        video:hover{
+        video:hover {
             display: inline;
             position: relative;
             overflow: hidden;
@@ -118,6 +119,7 @@
             margin-top: 5px;
             margin-bottom: 5px;
         }
+
         .hover-video {
             width: 100%;
             height: auto;
@@ -174,12 +176,12 @@
                 <p class="lead mb-2">I'm a passionate and dedicated python developer with experience in building
                     efficient web applications, eager to contribute to innovative projects and further enhance my skills
                     in software development. Explore my portfolio to see my projects, skills and capabilites. </p>
-                
+
                 <div class="social-icons mt-5">
                     <!-- <a class="social-icon" href="NiveenaKJ__Resume.pdf" ><i class="fa fa-download"></i></a> -->
-                     <!-- <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>  -->
-                     <a class="social-icon" href="https://github.com/niveena01"><i class="fab fa-github"></i></a> 
-                
+                    <!-- <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>  -->
+                    <a class="social-icon" href="https://github.com/niveena01"><i class="fab fa-github"></i></a>
+
                 </div>
             </div>
         </section>
@@ -324,6 +326,20 @@
                             PyCharm (IDE), and Git(Version Control)</p>
                     </div>
                 </div>
+
+                <div class="mb-5">
+                    <h3 class="mb-3">Real-Time Chat Application</h3>
+                    <p>This project is a real-time chat application built using FastAPI, WebSocket, and Bootstrap. It
+                        allows multiple users to join a chat room, send messages, and view live updates in a
+                        user-friendly interface. The application features a dedicated join page for user authentication
+                        and a chat room page for interaction, ensuring smooth communication. The frontend is styled with
+                        Bootstrap, while WebSocket handles efficient real-time message broadcasting.
+
+                    <div class="technology">
+                        <p><span>Technologies & Tools used:</span> Python, FastAPI, WebSocket, Bootstrap,
+                            VS Code(IDE) and Git(Version Control)</p>
+                    </div>
+                </div>
             </div>
         </section>
         <hr class="m-0" />
@@ -352,11 +368,10 @@
                             <img class="skill-img" src="images/icons8-js-50.png" width="42" height="42"><span>JS</span>
                         </li>
                         <li class="list-inline-item">
-                            <img class="skill-img" src="images/sqlite--database.png" width="62"
-                                height="32"><span>SQLite</span>
+                            <img class="skill-img" src="images/SQLite.png" width="50" height="32"><span>SQLite</span>
                         </li>
                         <li class="list-inline-item">
-                            <img class="skill-img" src="images/mysql--48.png" width="42" height="52"><span>MySQL</span>
+                            <img class="skill-img" src="images/MySQL.png" width="42" height="42"><span>MySQL</span>
                         </li>
                         <li class="list-inline-item">
                             <img class="skill-img" src="images/postgresql--48.png" width="42"
@@ -376,7 +391,7 @@
                                 learning</span>
                         </li>
                         <li class="list-inline-item">
-                            <img class="skill-img" src="images/restframework.png" width="62" height="42"><span>REST
+                            <img class="skill-img" src="images/Django REST.png" width="55" height="42"><span>REST
                                 Framework</span>
                         </li>
                         <li class="list-inline-item">
@@ -385,6 +400,12 @@
                         <li class="list-inline-item">
                             <img class="skill-img" src="images/aws--48.png" width="42" height="42"><span>AWS (EC2, S3,
                                 SES)</span>
+                        </li>
+                        <li class="list-inline-item">
+                            <img class="skill-img" src="images/FastAPI.png" width="42" height="42"><span>FastAPI</span>
+                        </li>
+                        <li class="list-inline-item">
+                            <img class="skill-img" src="images/Docker.png" width="42" height="42"><span>Docker</span>
                         </li>
                     </div>
 
@@ -446,16 +467,30 @@
                     <div class="card">
                         <!-- <img class="card__img" src="images/projects/sinrotechlearning.png"
                             alt="sinrotechlearning website image"> -->
-                            <video class="hover-video" muted loop>
-                                <source src="images/projects/sinrotech171947.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                        <video class="hover-video" muted loop>
+                            <source src="images/projects/sinrotech171947.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="card__content">
                             <!-- <h1 class="card__header">Utah sunsets</h1> -->
                             <div class="card__text-wrapper">
                                 <p class="card__text">I transformed the static website by integrating a dynamic backend
                                     using the Django framework and added new pages, utilizing Bootstrap for a responsive
                                     frontend design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card"><img class="card__img" src="images/projects/Screenshot 2024-11-16 143723.png"
+                            alt="chatapp image">
+                        <div class="card__content">
+                            <!-- <h1 class="card__header">Misty mornings</h1> -->
+                            <div class="card__text-wrapper">
+                                <p class="card__text">This project is a real-time chat application built using FastAPI,
+                                    WebSocket, and Bootstrap. It allows multiple users to join a chat room, send
+                                    messages, and view live updates in a user-friendly interface. The application
+                                    features a dedicated join page for user authentication and a chat room page for
+                                    interaction, ensuring smooth communication. The frontend is styled with Bootstrap,
+                                    while WebSocket handles efficient real-time message broadcasting.</p>
                             </div>
                         </div>
                     </div>
