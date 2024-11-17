@@ -44,3 +44,6 @@ function toggleContact(paragraphid) {
     });
     paragraph.style.display = (paragraph.style.display === "" || paragraph.style.display === "none") ? "block" : "none";
 }
+
+
+
