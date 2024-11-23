@@ -17,6 +17,10 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
         type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+    <!--Jquery addded for form-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!--  CSS -->
     <link href="styles.css" rel="stylesheet" />
     <style>
@@ -491,6 +495,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card"><img class="card__img" src="images/projects/Screenshot 2024-11-23 110602.png"
+                            alt="website image">
+                        <div class="card__content">
+                            <!-- <h1 class="card__header">Misty mornings</h1> -->
+                            <div class="card__text-wrapper">
+                                <p class="card__text">Developed the static website
+                                    using Bootstrap ensuring a clean, responsive layout to showcase target
+                                    products to the audience.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -546,7 +562,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <section class="resume-section" id="contactme">
         <div class="resume-section-content">
             <h2 class="">Contact Me</h2>
@@ -555,7 +571,7 @@
                     <div class="col-md-12">
 
                         <div class="form-container">
-                            <form action="https://script.google.com/macros/s/AKfycbxE4FChOqESSGG6DZkPZDBTYD5GT5FbJ9lqRhzYAG5hCcY63InWRw1llFeSmnd4g1Fllw/exec" method="post" name="contact-form">
+                            <form name="contact-form" id="contact" method="" action="">
                                 <div class="form-group">
                                     <label for="name">Your Name</label>
                                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -566,11 +582,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">Subject</label>
-                                    <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                                    <input type="text" id="subject" name="subject" placeholder="Enter the subject"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="message">Your Message</label>
-                                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                                    <textarea id="message" name="message" placeholder="Enter your message"
+                                        required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit">Send Message</button>
@@ -586,10 +604,91 @@
 
 
     </div>
-    <!-- <script src="googlesheet-script.js"></script> -->
+
+    <!-- Form submission script -->
     <script>
+        function showCustomAlert(title, message, callback) {
+            const overlay = document.createElement("div");
+            overlay.className = "custom-alert-overlay";
 
+            const alertBox = document.createElement("div");
+            alertBox.className = "custom-alert";
 
+            const checkIcon = document.createElement("div");
+            checkIcon.className = "alert-icon";
+            checkIcon.innerHTML = "&#10004;"; // Checkmark symbol
+
+            const alertTitle = document.createElement("div");
+            alertTitle.className = "alert-title";
+            alertTitle.innerText = title;
+
+            const alertMessage = document.createElement("div");
+            alertMessage.className = "alert-message";
+            alertMessage.innerText = message;
+
+            const alertBtn = document.createElement("button");
+            alertBtn.className = "alert-btn";
+            alertBtn.innerText = "OK";
+            alertBtn.onclick = () => {
+                document.body.removeChild(alertBox);
+                document.body.removeChild(overlay);
+                if (callback) callback();
+            };
+
+            alertBox.appendChild(checkIcon);
+            alertBox.appendChild(alertTitle);
+            alertBox.appendChild(alertMessage);
+            alertBox.appendChild(alertBtn);
+            document.body.appendChild(overlay);
+            document.body.appendChild(alertBox);
+        }
+
+    </script>
+
+    <script>
+        $("#contact").submit((e) => {
+            e.preventDefault(); // Prevent default form submission
+            const formData = $("#contact").serialize();
+
+            console.log("Serialized Data:", formData); // Log the serialized data for debugging
+
+            showLoader(); // Show the loader before AJAX request
+
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbzj7PCZRuaYbhrwwBbj6Ro2ClEFDaU2amkuYqAUD6rU4B1iNQO_PDNUxiNIEMBrW5n4/exec",
+                data: formData,
+                method: "POST",
+                success: function (response) {
+                    console.log("Response:", response); // Log the response
+                    
+                    hideLoader(); // Hide the loader after AJAX request completes
+                    
+                    if (response.result === "success") {
+                        console.time('alert-display');
+                        showCustomAlert(
+                            "Success!",
+                            "Thank you for reaching out!",
+                            () => window.location.reload() // Reload page after user closes the alert
+                        );
+                        console.timeEnd('alert-display');
+                    } else {
+                        showCustomAlert(
+                            "Error",
+                            response.error || "Unknown error occurred. Please try again."
+                        );
+                    }
+                },
+                error: function (err) {
+                    console.error("AJAX Error:", err);
+                    hideLoader(); // Hide the loader if AJAX request fails
+                    showCustomAlert("Error", "Something went wrong. Please try again later.");
+                },
+            });
+        });
+
+    </script>
+
+    <script>
         // video-script
         const video = document.querySelector('.hover-video');
 

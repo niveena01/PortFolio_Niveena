@@ -1,11 +1,4 @@
-/*!
-* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -46,4 +39,17 @@ function toggleContact(paragraphid) {
 }
 
 
+// Show loader before submitting the form
+function showLoader() {
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    document.body.appendChild(loader);
+}
 
+// Hide loader after submitting the form and show the alert
+function hideLoader() {
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        document.body.removeChild(loader);
+    }
+}
