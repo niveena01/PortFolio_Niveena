@@ -13052,6 +13052,7 @@ textarea {
 .proj-card {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   /* Ensure responsiveness */
   /* width: 960px; */
   background: white;
@@ -13155,6 +13156,7 @@ textarea {
 .proj-card3 {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   /* width: 960px; */
   width:auto;
   background: white;
